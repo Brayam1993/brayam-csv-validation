@@ -9,8 +9,9 @@ public class Text {
     private final String email;
     private final String telefono;
     private String extranjeras;
+    private String contacto;
 
-    public Text(int lineNumber, String id, String empresa, String rfc, String email, String telefono, String extranjeras) {
+    public Text(int lineNumber, String id, String empresa, String rfc, String email, String telefono, String extranjeras, String contacto) {
         this.lineNumber = lineNumber;
         this.id = id;
         this.empresa = empresa;
@@ -18,6 +19,7 @@ public class Text {
         this.email = email;
         this.telefono = telefono;
         this.extranjeras = extranjeras;
+        this.contacto = contacto;
     }
 
     public int getLineNumber() {
@@ -47,6 +49,9 @@ public class Text {
     public String getExtranjeras() {
         return extranjeras;
     }
+    public String getContacto() {
+        return contacto;
+    }
 
     @Override
     public String toString() {
@@ -57,6 +62,7 @@ public class Text {
                 ", email='" + email + '\'' +
                 ", telefono='" + telefono + '\'' +
                 ", extranjeras='" + extranjeras + '\'' +
+                ", contacto='" + contacto + '\'' +
                 '}';
     }
 
@@ -68,12 +74,14 @@ public class Text {
         this.rfc = fields[2];
         this.email = fields[3];
         this.telefono = fields[4];
+        this.extranjeras = fields[5];
         try{
-            this.extranjeras = fields[5];
+            this.contacto = fields[6];
         }catch(Exception e){
-            this.extranjeras = " ";
+            this.contacto = " ";
         }
 
 
     }
+
 }

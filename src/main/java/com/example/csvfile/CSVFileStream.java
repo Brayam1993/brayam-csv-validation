@@ -33,7 +33,8 @@ public class CSVFileStream  {
                   new RfcValidator(listRfc),
                   new EmailValidator(listEmail),
                   new PhoneValidator(),
-                  new ForeignValidator()
+                  new ForeignValidator(),
+                  new ContactValidator()
         );
 
         List<TextValidation> collect = textList.stream()
