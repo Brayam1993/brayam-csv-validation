@@ -7,7 +7,7 @@ public class ContactValidator implements  Validator{
     public Optional<Validation> validate(final Text text){
 
         if(lengTextContact(text.getContacto())){
-            return Optional.of(new Validation(text.getLineNumber(),text.getId(),"Obligatorio de 5 a 50 caracteres", "Contacto"));
+            return Optional.of(new Validation(text.getLineNumber(),text.getId(),"Debe contener de 5 a 50 caracteres", "Contacto"));
         }
 
         if(!isValid(text.getContacto())){

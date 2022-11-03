@@ -34,7 +34,8 @@ public class CSVFileStream  {
                   new EmailValidator(listEmail),
                   new PhoneValidator(),
                   new ForeignValidator(),
-                  new ContactValidator()
+                  new ContactValidator(),
+                  new FiscalAddressValidator()
         );
 
         List<TextValidation> collect = textList.stream()
