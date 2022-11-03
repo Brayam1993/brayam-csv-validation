@@ -1,16 +1,17 @@
 package com.example.csvfile;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 public class EmailValidator implements  Validator{
-    private final List<String> allEmails;
 
-    private static boolean doOnce=false;
-    public EmailValidator(List<String> listEmail) { this.allEmails = listEmail; }
+    List<String> listEmail = new ArrayList();
 
     public Optional<Validation> validate(final Text text) {
+
+        listEmail.add(text.getEmail());
 
         if(text.getEmail().trim().isEmpty()){
 
@@ -23,12 +24,7 @@ public class EmailValidator implements  Validator{
         }
 
         if ( isRepeated(text.getEmail())){
-            if(doOnce){
                 return Optional.of(new Validation(text.getLineNumber(), text.getId()," único no se puede repetir  ","email"));
-            } else {
-                doOnce = true;
-                return  Optional.empty();
-            }
         }
 
         // Si llegamos aqui no hay error
@@ -46,7 +42,7 @@ public class EmailValidator implements  Validator{
 
     public boolean isRepeated(final String value){
         try{
-            if (Collections.frequency(allEmails, value) > 1){
+            if (Collections.frequency(listEmail, value) > 1){
                 return true;
             }
         } catch (Exception e) { }

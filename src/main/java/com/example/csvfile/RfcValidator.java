@@ -4,14 +4,10 @@ import java.util.*;
 
 public class RfcValidator implements Validator {
 
-
-    private final List<String> allRfcs;
-    private static boolean doOnce=false;
-    public RfcValidator(List<String> listRfcs ) {
-    this.allRfcs = listRfcs;
-    }
-
+    List<String> listRfc = new ArrayList();
     public Optional<Validation> validate(final Text text) {
+
+        listRfc.add(text.getRfc());
 
         if ( text.getRfc().trim().isEmpty() ){
             // Campo invalido, devolvemos la validacion
@@ -29,13 +25,9 @@ public class RfcValidator implements Validator {
         }
 
         if ( isRepeated(text.getRfc())) {
-            // Campo invalido, devolvemos la validacion
-            if(doOnce){
+
                 return Optional.of(new Validation(text.getLineNumber(), text.getId(), " único no se puede repetir  ", "rfc"));
-            } else {
-                doOnce = true;
-                return Optional.empty();
-            }
+
         }
         // Si llegamos aqui no hay error
         return Optional.empty();
@@ -62,7 +54,7 @@ public class RfcValidator implements Validator {
     public boolean isRepeated(final String value) {
 
         try {
-            if ( Collections.frequency(allRfcs, value) > 1 ){
+            if ( Collections.frequency(listRfc, value) > 1 ){
                 return true;
             }
         } catch (Exception e) { }

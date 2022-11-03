@@ -21,17 +21,11 @@ public class CSVFileStream  {
                 .mapToObj(i -> new Text(fileLines.get(i), i + 2))
                 .collect(Collectors.toList());
 
-        List<String> listRfc = textList.stream().map(supplier -> supplier.getRfc()).collect(Collectors.toList());
-
-        List<String> listEmail = textList.stream().map(supplier -> supplier.getEmail()).collect(Collectors.toList());
-
-        System.out.println(listEmail);
-
         List<Validator> validators = List.of(
                   new IdValidator(),
                   new CompanyValidator(),
-                  new RfcValidator(listRfc),
-                  new EmailValidator(listEmail),
+                  new RfcValidator(),
+                  new EmailValidator(),
                   new PhoneValidator(),
                   new ForeignValidator(),
                   new ContactValidator(),
