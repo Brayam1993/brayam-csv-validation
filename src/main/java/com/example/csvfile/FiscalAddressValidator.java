@@ -4,15 +4,15 @@ import java.util.Optional;
 
 public class FiscalAddressValidator implements Validator{
 
-    public Optional<Validation> validate(final Text text){
+    public Optional<LineValidation> validate(final Line line){
 
-        if(lengTextFiscalAddress(text.getDireccionFiscal())){
-            return Optional.of(new Validation(text.getLineNumber(), text.getId(), "Debe contenen de 5 a 250 caracteres","Direccion fiscal"));
+        if(lengTextFiscalAddress(line.getDireccionFiscal())){
+            return Optional.of(new LineValidation(line.getLineNumber(), line.getId(), "Debe contenen de 5 a 250 caracteres","Direccion fiscal"));
 
         }
 
-        if(!isValid(text.getDireccionFiscal())){
-            return Optional.of(new Validation(text.getLineNumber(), text.getId(),"Debe contener solo letras, numeros, espacios y - ","Direccion fiscal"));
+        if(!isValid(line.getDireccionFiscal())){
+            return Optional.of(new LineValidation(line.getLineNumber(), line.getId(),"Debe contener solo letras, numeros, espacios y - ","Direccion fiscal"));
         }
 
         return Optional.empty();

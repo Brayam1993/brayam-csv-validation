@@ -4,18 +4,18 @@ import java.util.Optional;
 
 public class PhoneValidator implements Validator{
 
-    public Optional<Validation> validate(final Text text){
+    public Optional<LineValidation> validate(final Line line){
 
-        if( text.getTelefono().trim().isEmpty()){
+        if( line.getTelefono().trim().isEmpty()){
             return Optional.empty();
         }
 
-        if( lengTextTelephone(text.getTelefono())){
-            return Optional.of(new Validation(text.getLineNumber(), text.getId(), "Obligatorio 9 numeros","Telefono"));
+        if( lengTextTelephone(line.getTelefono())){
+            return Optional.of(new LineValidation(line.getLineNumber(), line.getId(), "Obligatorio 9 numeros","Telefono"));
         }
 
-        if(!isValid(text.getTelefono())){
-            return Optional.of(new Validation(text.getLineNumber(), text.getId(),"Debe contener solo numeros","Telefono"));
+        if(!isValid(line.getTelefono())){
+            return Optional.of(new LineValidation(line.getLineNumber(), line.getId(),"Debe contener solo numeros","Telefono"));
         }
 
         return Optional.empty();

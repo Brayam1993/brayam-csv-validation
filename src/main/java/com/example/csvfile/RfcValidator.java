@@ -5,28 +5,28 @@ import java.util.*;
 public class RfcValidator implements Validator {
 
     List<String> listRfc = new ArrayList();
-    public Optional<Validation> validate(final Text text) {
+    public Optional<LineValidation> validate(final Line line) {
 
-        listRfc.add(text.getRfc());
+        listRfc.add(line.getRfc());
 
-        if ( text.getRfc().trim().isEmpty() ){
+        if ( line.getRfc().trim().isEmpty() ){
             // Campo invalido, devolvemos la validacion
-            return Optional.of(new Validation(text.getLineNumber(), text.getId(), "Obligatorio", "rfc"));
+            return Optional.of(new LineValidation(line.getLineNumber(), line.getId(), "Obligatorio", "rfc"));
         }
 
-        if ( lengTextRfc(text.getRfc())){
+        if ( lengTextRfc(line.getRfc())){
             // Campo invalido, devolvemos la validacion
-            return Optional.of(new Validation(text.getLineNumber(), text.getId(), "Obligatorio 13 caracteres ", "rfc"));
+            return Optional.of(new LineValidation(line.getLineNumber(), line.getId(), "Obligatorio 13 caracteres ", "rfc"));
         }
 
-        if ( ! isValid(text.getRfc())){
+        if ( ! isValid(line.getRfc())){
             // Campo invalido, devolvemos la validacion
-            return Optional.of(new Validation(text.getLineNumber(), text.getId(), "Debe contener solo letras, numeros y espacios ", "rfc"));
+            return Optional.of(new LineValidation(line.getLineNumber(), line.getId(), "Debe contener solo letras, numeros y espacios ", "rfc"));
         }
 
-        if ( isRepeated(text.getRfc())) {
+        if ( isRepeated(line.getRfc())) {
 
-                return Optional.of(new Validation(text.getLineNumber(), text.getId(), " único no se puede repetir  ", "rfc"));
+                return Optional.of(new LineValidation(line.getLineNumber(), line.getId(), " único no se puede repetir  ", "rfc"));
 
         }
         // Si llegamos aqui no hay error

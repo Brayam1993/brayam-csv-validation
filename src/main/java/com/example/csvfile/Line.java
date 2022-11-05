@@ -1,6 +1,6 @@
 package com.example.csvfile;
 
-public class Text {
+public class Line {
 
     private final int lineNumber;
     private final String id;
@@ -12,7 +12,7 @@ public class Text {
     private String contacto;
     private String direccionFiscal;
 
-    public Text(int lineNumber, String id, String empresa, String rfc, String email, String telefono, String extranjeras, String contacto, String direccionFiscal) {
+    public Line(int lineNumber, String id, String empresa, String rfc, String email, String telefono, String extranjeras, String contacto, String direccionFiscal) {
         this.lineNumber = lineNumber;
         this.id = id;
         this.empresa = empresa;
@@ -60,8 +60,9 @@ public class Text {
 
     @Override
     public String toString() {
-        return "Text{" +
-                "id='" + id + '\'' +
+        return "valid {" +
+                "lineNumber='" + lineNumber + '\'' +
+                ",id='" + id + '\'' +
                 ", empresa='" + empresa + '\'' +
                 ", rfc='" + rfc + '\'' +
                 ", email='" + email + '\'' +
@@ -72,7 +73,7 @@ public class Text {
                 '}';
     }
 
-    public Text(final String line, int lineNumber) {
+    public Line(final String line, int lineNumber) {
         final String[] fields = line.split(",");
         this.lineNumber= lineNumber ;
         this.id = fields[0];

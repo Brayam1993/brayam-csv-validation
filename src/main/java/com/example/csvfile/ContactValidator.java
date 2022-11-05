@@ -4,14 +4,14 @@ import java.util.Optional;
 
 public class ContactValidator implements  Validator{
 
-    public Optional<Validation> validate(final Text text){
+    public Optional<LineValidation> validate(final Line line){
 
-        if(lengTextContact(text.getContacto())){
-            return Optional.of(new Validation(text.getLineNumber(),text.getId(),"Debe contener de 5 a 50 caracteres", "Contacto"));
+        if(lengTextContact(line.getContacto())){
+            return Optional.of(new LineValidation(line.getLineNumber(), line.getId(),"Debe contener de 5 a 50 caracteres", "Contacto"));
         }
 
-        if(!isValid(text.getContacto())){
-            return Optional.of(new Validation(text.getLineNumber(), text.getId(), "Debe contener solo letras, numeros y espacios ", "Contacto"));
+        if(!isValid(line.getContacto())){
+            return Optional.of(new LineValidation(line.getLineNumber(), line.getId(), "Debe contener solo letras, numeros y espacios ", "Contacto"));
         }
 
         return Optional.empty();

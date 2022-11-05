@@ -9,22 +9,22 @@ public class EmailValidator implements  Validator{
 
     List<String> listEmail = new ArrayList();
 
-    public Optional<Validation> validate(final Text text) {
+    public Optional<LineValidation> validate(final Line line) {
 
-        listEmail.add(text.getEmail());
+        listEmail.add(line.getEmail());
 
-        if(text.getEmail().trim().isEmpty()){
+        if(line.getEmail().trim().isEmpty()){
 
-            return Optional.of(new Validation(text.getLineNumber(), text.getId(),"Obligatorio","email"));
+            return Optional.of(new LineValidation(line.getLineNumber(), line.getId(),"Obligatorio","email"));
         }
 
-        if ( ! isValid(text.getEmail())){
+        if ( ! isValid(line.getEmail())){
             // Campo invalido, devolvemos la validacion
-            return Optional.of(new Validation(text.getLineNumber(), text.getId(), "debe contener \"@\" y acabar con \".com\", \".com.mx\" ", "email"));
+            return Optional.of(new LineValidation(line.getLineNumber(), line.getId(), "debe contener \"@\" y acabar con \".com\", \".com.mx\" ", "email"));
         }
 
-        if ( isRepeated(text.getEmail())){
-                return Optional.of(new Validation(text.getLineNumber(), text.getId()," único no se puede repetir  ","email"));
+        if ( isRepeated(line.getEmail())){
+                return Optional.of(new LineValidation(line.getLineNumber(), line.getId()," único no se puede repetir  ","email"));
         }
 
         // Si llegamos aqui no hay error

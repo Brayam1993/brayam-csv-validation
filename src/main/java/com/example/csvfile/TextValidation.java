@@ -9,12 +9,12 @@ import java.util.List;
 @AllArgsConstructor
 public class TextValidation {
     private boolean valid;
-    private Text line;
-    private List<Validation> errors;
+    private Line line;
+    private List<LineValidation> errors;
 
-    public TextValidation(final Text line, final List<Validation> validations) {
+    public TextValidation(final Line line, final List<LineValidation> LineValidations) {
         this.line = line;
-        this.errors = validations;
-        this.valid = validations.size()==0;
+        this.errors = LineValidations;
+        this.valid = LineValidations.size()==0;
     }
 }

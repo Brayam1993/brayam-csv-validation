@@ -4,15 +4,15 @@ import java.util.Optional;
 
 public class ForeignValidator implements Validator{
 
-    public Optional<Validation> validate(final Text text){
+    public Optional<LineValidation> validate(final Line line){
 
-        if ( text.getExtranjeras().trim().isEmpty()){
+        if ( line.getExtranjeras().trim().isEmpty()){
 
-            return Optional.of(new Validation(text.getLineNumber(), text.getId(),"Obligatorio","Extranjeras"));
+            return Optional.of(new LineValidation(line.getLineNumber(), line.getId(),"Obligatorio","Extranjeras"));
         }
 
-        if( ! isValid(text.getExtranjeras())){
-            return Optional.of(new Validation(text.getLineNumber(),text.getId(),"Debe contener \"1\", \"true\", \"verdadero\" - falsos: \"0\", \"false\", \"falso\"","Extranjeras"));
+        if( ! isValid(line.getExtranjeras())){
+            return Optional.of(new LineValidation(line.getLineNumber(), line.getId(),"Debe contener \"1\", \"true\", \"verdadero\" - falsos: \"0\", \"false\", \"falso\"","Extranjeras"));
         }
 
         return Optional.empty();

@@ -1,5 +1,5 @@
 id,empresa,rfc,email,telefono,extranjera,contacto, direccion fiscal
 1,CocaCola1,RFC123456789C,contact1@email.com,999888777,0,Davida,Direccion
-2,CocaCola2,RFC123456788C,contact1@email.com,999888777,0,Daira,Direccion
+2,CocaCola2,RFC123456788C1,contact1@email.com,999888777,0,Daira,Direccion
 3,CocaCola3,RFC123456787C,contact3@email.com,999888777,0,Danielo,Direccion
 4,CocaCola5,RFC123456786C,contact3@email.com,999888777,0,Danielin,Direccion

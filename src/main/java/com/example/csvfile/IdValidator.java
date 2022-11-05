@@ -3,16 +3,16 @@ package com.example.csvfile;
 import java.util.Optional;
 
 class IdValidator implements Validator {
-    public Optional<Validation> validate(final Text text) {
+    public Optional<LineValidation> validate(final Line line) {
 
-        if ( text.getId().trim().isEmpty()){
+        if ( line.getId().trim().isEmpty()){
             // Campo invalido, devolvemos la validacion
-            return Optional.of(new Validation(text.getLineNumber(), text.getId(), "Obligatorio", "id"));
+            return Optional.of(new LineValidation(line.getLineNumber(), line.getId(), "Obligatorio", "id"));
         }
 
-        if ( ! isValid(text.getId())){
+        if ( ! isValid(line.getId())){
             // Campo invalido, devolvemos la validacion
-            return Optional.of(new Validation(text.getLineNumber(), text.getId(), "Debe ser numérico, mayor a cero", "id"));
+            return Optional.of(new LineValidation(line.getLineNumber(), line.getId(), "Debe ser numérico, mayor a cero", "id"));
         }
 
         return Optional.empty();

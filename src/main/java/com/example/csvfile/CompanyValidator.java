@@ -3,16 +3,16 @@ package com.example.csvfile;
 import java.util.Optional;
 
 public class CompanyValidator implements  Validator{
-    public Optional<Validation> validate(final Text text) {
+    public Optional<LineValidation> validate(final Line line) {
 
-        if ( lengTextCompany(text.getEmpresa())){
+        if ( lengTextCompany(line.getEmpresa())){
             // Campo invalido, devolvemos la validacion
-            return Optional.of(new Validation(text.getLineNumber(), text.getId(), "Maximo 50 caracteres ", "empresa"));
+            return Optional.of(new LineValidation(line.getLineNumber(), line.getId(), "Maximo 50 caracteres ", "empresa"));
         }
 
-        if ( ! isValid(text.getEmpresa())){
+        if ( ! isValid(line.getEmpresa())){
             // Campo invalido, devolvemos la validacion
-            return Optional.of(new Validation(text.getLineNumber(), text.getId(), "Debe contener solo letras, numeros y espacios ", "empresa"));
+            return Optional.of(new LineValidation(line.getLineNumber(), line.getId(), "Debe contener solo letras, numeros y espacios ", "empresa"));
         }
 
 
