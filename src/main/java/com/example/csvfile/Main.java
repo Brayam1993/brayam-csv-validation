@@ -13,5 +13,10 @@ public class Main {
 
         // Get all valid lines to store into a database
         final List<Line> validLines = validator.getValidRecords();
+
+        System.out.println(validations);
+
+        System.out.println(validLines);
+
     }
 }

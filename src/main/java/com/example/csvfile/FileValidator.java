@@ -8,15 +8,20 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class FileValidator {
+
+    private final List<TextValidation> allTextValidations;
+
+
     private String fileName;
 
     public FileValidator(String fileName) throws IOException {
         this.fileName = fileName;
+        this.allTextValidations = getListValidation();
     }
 
     public List<LineValidation> getErrors() throws IOException {
 
-        return getListValidation().stream()
+        return allTextValidations.stream()
                 .filter(textValidation -> textValidation.isValid() == false)
                 .flatMap(textValidation -> textValidation.getErrors().stream())
                 .collect(Collectors.toList());
@@ -24,7 +29,7 @@ public class FileValidator {
 
     public List<Line> getValidRecords() throws IOException {
 
-        return getListValidation().stream()
+        return allTextValidations.stream()
                 .filter(textValidation -> textValidation.isValid())
                 .map(textValidation -> textValidation.getLine())
                 .collect(Collectors.toList());
