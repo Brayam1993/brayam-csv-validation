@@ -6,7 +6,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws IOException {
         // Create a new validator instance
-        final FileValidator validator = new FileValidator("filename.csv");
+        final FileValidator validator = new FileValidator("companysErrors.csv");
 
         // Get all invalid lines with all the errors to inform the user
         final List<LineValidation> validations = validator.getErrors();
@@ -15,8 +15,6 @@ public class Main {
         final List<Line> validLines = validator.getValidRecords();
 
         System.out.println(validations);
-
-        System.out.println(validLines);
 
     }
 }
