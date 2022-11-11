@@ -20,7 +20,7 @@ public class ForeignValidator implements Validator {
         final String value = line.foreing();
 
         if(isEmpty(value)) {
-            return getViolation("The foreing field is required.");
+            return getViolation("The foreign field is required.");
         }
 
         if( ! isValid(value)) {
