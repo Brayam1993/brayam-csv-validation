@@ -1,4 +1,4 @@
-package com.example.csvfile;
+package com.example.csvfile.validators;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
