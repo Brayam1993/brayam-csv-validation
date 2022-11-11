@@ -2,7 +2,7 @@ package com.example.test;
 
 import com.example.csvfile.validators.FileValidator;
 import com.example.csvfile.validators.data.Line;
-import com.example.csvfile.validators.LineValidation;
+import com.example.csvfile.validators.data.ValidationResult;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -20,7 +20,7 @@ class FileValidatorTest {
 
     @Test
     void getValidRecords() throws IOException {
-        FileValidator validator = new FileValidator("companysErrors.csv");
+        FileValidator validator = new FileValidator("src/main/resources/companysErrors.csv");
 
         List<Line> validRecords = validator.getValidRecords();
 
@@ -29,12 +29,31 @@ class FileValidatorTest {
 
     @Test
     void getInvalidRecords() throws IOException {
-        FileValidator validator = new FileValidator("companysErrors.csv");
+        FileValidator validator = new FileValidator("src/main/resources/companysErrors.csv");
 
-        //List<LineValidation> invalidRecords  = validator.getErrors();
+        List<ValidationResult> invalidRecords = validator.getInvalidRecords();
 
-      //  assertThat(invalidRecords).hasSize(1);
-        //*
-      //  assertThat(invalidRecords.get(0).getNumberLine().intValue()).isEqualTo(2);
+        assertThat(invalidRecords).hasSize(1);
+        assertThat(invalidRecords.get(0).line().number()).isEqualTo(2);
+    }
+
+    @Test
+    void getInvalidRecords_duplicatedEmails() throws IOException {
+        FileValidator validator = new FileValidator("src/main/resources/emails_duplicates.csv");
+
+        List<ValidationResult> invalidRecords = validator.getInvalidRecords();
+
+        assertThat(invalidRecords).hasSize(1);
+        assertThat(invalidRecords.get(0).line().number()).isEqualTo(3);
+    }
+
+    @Test
+    void getInvalidRecords_duplicatedRfcs() throws IOException {
+        FileValidator validator = new FileValidator("src/main/resources/rfcs_duplicates.csv");
+
+        List<ValidationResult> invalidRecords = validator.getInvalidRecords();
+
+        assertThat(invalidRecords).hasSize(1);
+        assertThat(invalidRecords.get(0).line().number()).isEqualTo(3);
     }
 }

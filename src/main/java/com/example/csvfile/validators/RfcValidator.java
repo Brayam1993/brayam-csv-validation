@@ -26,7 +26,7 @@ public class RfcValidator implements Validator {
         final String value = line.rfc();
 
         if (isEmpty(value)) {
-            return getViolation("The RFC ir required.");
+            return getViolation("The RFC is required.");
         }
 
         if(! isValid(value)) {

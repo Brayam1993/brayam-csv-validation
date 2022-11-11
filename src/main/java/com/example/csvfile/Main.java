@@ -2,7 +2,6 @@ package com.example.csvfile;
 
 import com.example.csvfile.validators.FileValidator;
 import com.example.csvfile.validators.data.Line;
-import com.example.csvfile.validators.LineValidation;
 import com.example.csvfile.validators.data.ValidationResult;
 
 import java.io.IOException;
@@ -28,7 +27,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         // Create a new validator to handle the details
-        final FileValidator validator = new FileValidator("src/main/resources/filename.csv");
+        final FileValidator validator = new FileValidator("src/main/resources/rfcs_duplicates.csv");
 
         // Extract correct records
         final List<Line> validRecords = validator.getValidRecords();
