@@ -10,7 +10,7 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class EmailValidatorTest {
+class EmailValidatorTest {
 
     static Line getLine(String email) {
         return new Line(1, null, null, null, email,null, null, null,null);

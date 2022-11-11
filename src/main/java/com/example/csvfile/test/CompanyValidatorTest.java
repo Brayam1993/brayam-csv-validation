@@ -11,7 +11,7 @@ import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class CompanyValidatorTest {
+class CompanyValidatorTest {
 
     private static Line getLine(String company) {
         return new Line(1,null,company,null,null,null,null,null,null);
