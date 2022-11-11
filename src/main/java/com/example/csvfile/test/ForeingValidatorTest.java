@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.csvfile.test;
 
 import com.example.csvfile.validators.ForeignValidator;
 import com.example.csvfile.validators.data.Line;
@@ -45,7 +45,7 @@ class ForeingValidatorTest {
         assertThat(violation).isPresent();
         assertThat(violation.get().message()).isEqualTo("The foreign field is required.");
     }
-    
+
     @Test
     void validate_whenInvalidForeign_receiveViolation() {
 

@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.csvfile.test;
 
 import com.example.csvfile.validators.PhoneValidator;
 import com.example.csvfile.validators.data.Line;

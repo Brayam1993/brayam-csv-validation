@@ -5,7 +5,7 @@ import com.example.csvfile.validators.data.Violation;
 
 import java.util.Optional;
 
-public interface Validator {
+interface Validator {
 
     Optional<Violation> validate(final Line line);
     default boolean isEmpty(String value){
