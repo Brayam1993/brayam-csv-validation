@@ -5,7 +5,7 @@ import com.example.csvfile.validators.data.Violation;
 
 import java.util.Optional;
 
-class IdValidator implements Validator {
+public class IdValidator implements Validator {
 
     private Optional<Violation> getViolation(final String message){
         return getViolation("id", message);
