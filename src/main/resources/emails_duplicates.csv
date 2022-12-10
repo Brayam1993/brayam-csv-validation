@@ -1,0 +1,4 @@
+id,empresa,rfc,email,telefono,extranjera,contacto, direccion fiscal
+1,Coca Cola,RFD8833349DOX,john.doe@email.com,999000888,true,Jose Aguilar,Direccion
+2,Duplicated Cola,RFD8833349DOX,john.doe@email.com,999000888,true,Jose Aguilar,Direccion
+3,Apple,RFC903DFR345D,bryan.oconner@apple.com,999000333,true,Bryan OConner,Direccion

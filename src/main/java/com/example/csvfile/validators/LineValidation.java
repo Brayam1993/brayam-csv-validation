@@ -1,11 +1,11 @@
-package com.example.csvfile;
+package com.example.csvfile.validators;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Validation {
+public class LineValidation {
     private Integer numberLine;
     private String id;
     private String error;
@@ -13,8 +13,9 @@ public class Validation {
 
     @Override
     public String toString() {
-        return "{" +
-                "field='" + field + '\'' +
+        return "error {" +
+                "numberLine='" + numberLine + '\'' +
+                ", field='" + field + '\'' +
                //"id='" + id + '\'' +
                 ", error='" + error + '\'' +
                 '}';
